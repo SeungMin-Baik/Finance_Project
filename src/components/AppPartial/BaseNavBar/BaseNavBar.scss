@@ -1,0 +1,43 @@
+.FinanceProject-NavBar {
+    padding-top: 0.3vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    z-index: 50;
+
+    .NavBar-LinkHome {
+        width: 20%;
+        display: flex;
+        color: #000000;
+        font-size: 1.6em;
+        font-weight: bold;
+        align-self: center;
+        justify-content: end;
+        cursor: pointer;
+
+        .LinkHome-Icon {
+            margin-top: 0.1vh;
+            margin-right: 0.3vw;
+        }
+    }
+
+    .NavBar-MyInfo {
+        width: 80%;
+        justify-content: end;
+        margin-right: 3vw;
+        display: flex;
+        padding-bottom: 0.7vh;
+
+        .NavBar-MyInfo-Icon {
+            font-size: 2.5em;
+            margin-top: 0.2vh;
+            margin-right: 1.3vw;
+            cursor: pointer;
+        }
+    }
+}

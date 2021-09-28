@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <base href="/">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="" />
+        <meta name="author" content="Seoung-Min Baik" />
+        <meta name="theme-color" content="#333333" />
+        <meta name="msapplication-TileColor" content="#333333" />
+        <title>Finance Project</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Material+Icons" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet" />
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('worker.js').then(function(registration) {
+                        console.log('Worker registration successful', registration.scope);
+                    }, function(err) {
+                        console.log('Worker registration failed', err);
+                    }).catch(function(err) {
+                        console.log(err);
+                    });
+                });
+            } else {
+                console.log('Service Worker is not supported by browser.');
+            }
+        </script>
+    </body>
+</html>

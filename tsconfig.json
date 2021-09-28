@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "keyofStringsOnly": true,
+    "declaration": false,
+    "sourceMap": false,
+    "jsx": "react",
+    "lib": ["es2015", "dom", "dom.iterable"],
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["src/*"],
+      "@public/*": ["public/*"]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "typings/**/*"
+    ]
+  }
+}

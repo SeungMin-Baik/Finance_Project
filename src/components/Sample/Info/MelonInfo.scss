@@ -1,0 +1,133 @@
+.FinanceProject-MelonInfo-Head {
+    justify-content: center;
+
+    .FinanceProject-MelonInfo-Title {
+        font-size: 2.3em;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 1vh;
+        margin-bottom: 2vh;
+        color: #00cd3c;
+    }
+
+    .FinanceProject-MelonInfo-Search {
+        text-align: center;
+        margin-bottom: 3vh;
+
+        .Search-Info {
+            width: 25%;
+            padding: 1vh 1vw;
+            border: 3px solid #00cd3c;
+            border-radius: 15px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.FinanceProject-MelonInfo {
+    display: flex;
+    justify-content: center;
+
+    .MelonInfo-LankBox {
+        width: 50%;
+        height: 100%;
+        box-shadow:
+        0 2px 6px 0 rgba(0, 0, 0, 0.5),
+        0 1px 1px 0 rgba(0, 0, 0, 0.14),
+        0 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+        .LankBox-TypeTab {
+            width: 100%;
+            display: flex;
+
+            .Tab-Info {
+                width: 50%;
+                text-align: center;
+                font-size: 1.2em;
+                font-weight: bold;
+                align-self: center;
+                padding: 1vh 0;
+                color: #8e8e8e;
+                box-shadow:
+                0 1px 1px 0 rgba(212, 212, 212, 0.938),
+                0 1px 1px 0 rgb(250, 245, 245),
+                0 2px 1px -1px rgba(255, 255, 255, 0.904);
+
+                &:hover {
+                    cursor: pointer;
+                    background: rgb(240, 240, 240);
+                }
+            }
+        }
+
+        .LankBox-LankTab {
+            width: 100%;
+            display: flex;
+
+            .Tab-Info {
+                width: 25%;
+                text-align: center;
+                font-size: 1em;
+                font-weight: bold;
+                align-self: center;
+                padding: 1vh 0;
+                color: #807e7e;
+                box-shadow:
+                0 1px 1px 0 rgba(212, 212, 212, 0.938),
+                0 1px 1px 0 rgb(250, 245, 245),
+                0 2px 1px -1px rgba(255, 255, 255, 0.904);
+
+                &:hover {
+                    cursor: pointer;
+                    background: rgb(240, 240, 240);
+                }
+            }
+        }
+
+        .LankBox-Title {
+            width: 100%;
+            display: flex;
+
+            .Title-Info {
+                width: 33%;
+                margin-left: 2vw;
+                font-size: 1.1em;
+                color: rgb(0, 0, 0);
+                padding: 3vh 0;
+                border-bottom: 1px solid #dddbdb;
+            }
+        }
+
+        .LankBox-Contents {
+            width: 100%;
+            .Contents-Container {
+                width: 100%;
+                display: flex;
+
+                .Contents-Info {
+                    overflow: hidden;
+                    display: flex;
+                    width: 33%;
+                    margin-left: 2vw;
+                    padding: 2.5vh 0;
+                    border-bottom: 1px solid #dddbdb;
+
+                    .Info-Image {
+                        .Image {
+                            width: 80px;
+                            margin-right: 1vw;
+                        }
+                    }
+
+                    .Info-Text {
+                        align-self: center;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
+    }
+}

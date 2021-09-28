@@ -1,0 +1,21 @@
+.FinanceProject-Container {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+
+    > .FinanceProject-Body {
+        flex: 1 1;
+        width: 100%;
+        margin-top: 0;
+        background: #ffffff;
+    }
+
+    > .FinanceProject-Body-Info {
+        overflow: auto;
+        flex: 1 1;
+        width: 100%;
+        padding: 7vh 1vw 0 1vw;
+        background: #ffffff;
+    }
+}

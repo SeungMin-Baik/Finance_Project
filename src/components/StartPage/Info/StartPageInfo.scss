@@ -1,0 +1,33 @@
+.FinanceProject-StartPageInfo {
+    text-align: center;
+    margin-top: 25vh;
+
+    .StartPageInfo-Title {
+        color: white;
+        font-weight: bold;
+        font-size: 5em;
+        padding-bottom: 10vh;
+    }
+
+    .StartPageInfo-StartButton {
+        padding: 2vh 7vw;
+        background: white;
+        border-radius: 20px;
+        border: none;
+        box-shadow:
+        0 1px 7px 0 rgba(212, 212, 212, 0.938),
+        0 1px 1px 0 rgb(250, 245, 245),
+        0 2px 1px -1px rgba(255, 255, 255, 0.904);
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.9;
+        }
+
+        .StartButton-Text {
+            font-size: 2em;
+            font-weight: bold;
+            color: #24469f;
+        }
+    }
+}
