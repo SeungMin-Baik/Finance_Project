@@ -7,6 +7,12 @@
         font-weight: bold;
         font-size: 5em;
         padding-bottom: 10vh;
+        animation: showTopText 1s;
+    }
+
+    @keyframes showTopText {
+        0% { transform: translate3d(0, 100%, 0); opacity: 0;}
+        100% { transform: translate3d(0, 0, 0); opacity: 1;}
     }
 
     .StartPageInfo-StartButton {

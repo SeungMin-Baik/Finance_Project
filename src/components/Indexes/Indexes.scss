@@ -1,0 +1,60 @@
+.FinanceProject-Indexes {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5vh 0 5vh 5vw;
+    border-bottom: 1px solid #ddd;
+
+    .Indexes-Info {
+        width: 25%;
+        margin-right: 2vw;
+        margin-left: 1vw;
+
+        .Info-Title {
+            display: flex;
+            align-items: end;
+            width: 85%;
+
+            .Title-ko {
+                font-size: 2em;
+                font-weight: bold;
+                margin-right: 1vw;
+            }
+
+            .Title-en {
+                font-size: 1.5em;
+                color: #8f8f8f;
+            }
+        }
+
+        .Info-Index {
+            display: flex;
+            align-items: end;
+            width: 85%;
+
+            .Index-index {
+                font-size: 2.5em;
+                margin-right: 1vw;
+            }
+
+            .Index-detail {
+                font-size: 1.5em;
+                margin-right: 1vw;
+            }
+
+            .Index-per {
+                font-size: 1.2em;
+                margin-right: 1vw;
+            }
+        }
+
+        .Info-Chart {
+            text-align: center;
+            width: 85%;
+            
+            .chart {
+                width: 100%;
+            }
+        }
+    }
+}

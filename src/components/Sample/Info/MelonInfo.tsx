@@ -5,10 +5,10 @@ import { RouteComponentProps } from 'react-router';
 import { genreList, tabList, typeList } from './listForTab';
 
 /* Api*/
-import { getRankingInMelon } from '@app/apis/sample';
+// import { getRankingInMelon } from '@app/apis/Indexes';
 
 /* Model */
-import { melonType } from '@app/apis/sample';
+// import { melonType } from '@app/apis/Indexes';
 
 /* StyleSheet */
 import './MelonInfo.scss';
@@ -17,7 +17,7 @@ type MelonInfoProps = {} & RouteComponentProps;
 
 type MelonInfotStates = {
     /* Rank data */
-    melon: melonType[];
+    melon: any;
 
     typeTab: string;
 
@@ -157,22 +157,22 @@ class MelonInfo extends React.Component<MelonInfoProps, MelonInfotStates> {
 
     /* GET rank data */
     private callMelonRankToApi = (type?: string) => {
-        if (type) {
-            getRankingInMelon(type)
-                .then(res => {
-                    this.setState({
-                        melon: res,
-                        currentLankTab: type
-                    });
-                })
-                .catch(err => alert(err));
-        } else {
-            getRankingInMelon('24h')
-                .then(res => {
-                    this.setState({ melon: res });
-                })
-                .catch(err => alert(err));
-        }
+        // if (type) {
+        //     getRankingInMelon(type)
+        //         .then(res => {
+        //             this.setState({
+        //                 melon: res,
+        //                 currentLankTab: type
+        //             });
+        //         })
+        //         .catch(err => alert(err));
+        // } else {
+        //     getRankingInMelon('24h')
+        //         .then(res => {
+        //             this.setState({ melon: res });
+        //         })
+        //         .catch(err => alert(err));
+        // }
     }
 
     /* handle tab for ui */

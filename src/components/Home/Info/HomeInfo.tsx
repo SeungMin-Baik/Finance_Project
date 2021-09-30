@@ -3,6 +3,9 @@ import { FormattedMessage, FormattedRelative } from 'react-intl';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 
+// Component
+import Indexes from '@app/components/Indexes';
+
 // Stroe
 import store from '@app/store';
 
@@ -25,7 +28,7 @@ class HomeInfo extends React.Component<HomeInfoProps, HomeInfotStates> {
 
         return (
             <div className='FinanceProject-HomeInfo'>
-                Home
+                <Indexes />
             </div>
         );
     }

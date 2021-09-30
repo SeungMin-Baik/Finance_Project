@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, createTheme  } from '@material-ui/core/styles';
 
 // App store
 import store from '@app/store';
@@ -12,7 +12,7 @@ import Root from './Root';
 
 // Override `Material-UI` theme for customizing.
 // ref: https://material-ui.com/customization/themes/#muithemeprovider
-const theme = createMuiTheme({
+const theme = createTheme ({
     typography: {
         fontFamily: '\'Noto Sans\', \'Noto Sans KR\', sans-serif, Arial'
     },
