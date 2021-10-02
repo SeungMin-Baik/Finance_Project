@@ -2,13 +2,19 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 5vh 0 5vh 5vw;
+    padding: 2vh 0 5vh 3vw;
     border-bottom: 1px solid #ddd;
+
+    .Indexes-Dummy {
+        border-right: 1px solid #f1f1f1;
+        margin-right: 2vw;
+    }
 
     .Indexes-Info {
         width: 25%;
         margin-right: 2vw;
         margin-left: 1vw;
+        border-right: 1px solid #f1f1f1;
 
         .Info-Title {
             display: flex;

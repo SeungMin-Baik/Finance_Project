@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 // Component
 import Indexes from '@app/components/Indexes';
+import StocksList from '@app/components/StocksList';
 
 // Stroe
 import store from '@app/store';
@@ -29,6 +30,7 @@ class HomeInfo extends React.Component<HomeInfoProps, HomeInfotStates> {
         return (
             <div className='FinanceProject-HomeInfo'>
                 <Indexes />
+                <StocksList />
             </div>
         );
     }

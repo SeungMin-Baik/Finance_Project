@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Switch, Route } from 'react-router';
 
-// Api
-import { getTodayIndexes, indexesObjectType } from '@app/apis/Indexes';
+// API
+import { getTodayIndexes, indexObjectType } from '@app/apis/finance';
 
 // StyleSeet
 import './Indexes.scss';
 
 type IndexestStates = {
-    indexes: indexesObjectType[];
+    indexes: indexObjectType[];
 };
 
 /* Route Indexes*/
@@ -25,12 +25,12 @@ class Indexes extends React.Component<{}, IndexestStates> {
     }
 
     componentDidUpdate() {
-        console.log('indexes', this.state.indexes);
     }
 
     render() {
         return (
             <div className='FinanceProject-Indexes'>
+                <div className='Indexes-Dummy'/>
                 {
                     this.state.indexes && this.state.indexes.length > 0 ?
                         this.state.indexes.map(index => {
@@ -72,6 +72,7 @@ class Indexes extends React.Component<{}, IndexestStates> {
             .then(res => this.setState({ indexes: res }))
             .catch(err => console.error(err));
     }
+
 }
 
 export default Indexes;
