@@ -45,7 +45,7 @@ export function replaceIndexesDummyData(text: string): Promise<any> {
     });
 }
 
-export function replaceStocksListDummyData(text: string): Promise<any> {
+export function replaceListDummyData(text: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
         try {
 

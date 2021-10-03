@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router';
 
 // API
-import { getTodayIndexes, indexObjectType } from '@app/apis/finance';
+import { getTodayIndexes, indexObjectType } from '@app/apis/indexes';
 
 // StyleSeet
 import './Indexes.scss';

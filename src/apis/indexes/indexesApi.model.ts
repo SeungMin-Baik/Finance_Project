@@ -23,3 +23,26 @@ export type stockObject = {
     per: string,
     roe: string
 };
+
+export type topTrading = {
+    item: string,
+    currentPrice: string,
+    updown: string,
+    comparedYester: string,
+    fluctuation: string
+};
+
+export type topIndustry = {
+    item: string,
+    fluctuation: string
+};
+
+export type topTheme = {
+    item: string,
+    fluctuation: string
+};
+
+export type popularitySearch = {
+    item: string,
+    currentPrice: string
+};
