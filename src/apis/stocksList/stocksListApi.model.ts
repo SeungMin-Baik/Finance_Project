@@ -46,3 +46,10 @@ export type popularitySearch = {
     per: string,
     roe: string
 };
+
+export type foreignStockMarget = {
+    item: string,
+    currentIndex: string,
+    updown: string,
+    comparedYester: string,
+};

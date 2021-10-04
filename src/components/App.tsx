@@ -24,6 +24,14 @@ const AsyncStartPageComponent = Loadable({
     loader: () => import(/* webpackChunkName: "auth" */ './StartPage'),
     loading: LoadingPage
 });
+const AsyncIndustryThemeComponent = Loadable({
+    loader: () => import(/* webpackChunkName: "IndustryTheme" */ './TopList/Detail/IndustryThemeDetail'),
+    loading: LoadingPage
+});
+const AsyncPopularitySearchComponent = Loadable({
+    loader: () => import(/* webpackChunkName: "PopularitySearch" */ './TopList/Detail/PopularitySearchDetail'),
+    loading: LoadingPage
+});
 
 
 /** Props of `App` component. */
@@ -59,6 +67,16 @@ class App extends React.Component<AppComponentProps, AppComponentStates> {
                         <Route
                             path='/home'
                             component={AsyncHomeComponent}
+                            exact
+                        />
+                        <Route
+                            path='/industryTheme'
+                            component={AsyncIndustryThemeComponent}
+                            exact
+                        />
+                        <Route
+                            path='/popularitySearch'
+                            component={AsyncPopularitySearchComponent}
                             exact
                         />
                         <Route

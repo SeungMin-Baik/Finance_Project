@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Switch, Route, Redirect } from 'react-router';
 
-// API
-import { getTopIndustries, getTopTrading, getTopTheme, getPopularitySearch, getForeignStockMarget } from '@app/apis/stocksList';
+// Component
+import Section1 from './Section1';
+import Section2 from './Section2';
 
 // Stylesheets
 import './TopList.scss';
@@ -24,21 +25,13 @@ class TopList extends React.Component<TopListProps, TopListStates> {
     }
 
     componentDidMount() {
-        getTopTrading()
-            .then(res => console.log('거래상위', res));
-        getTopIndustries()
-            .then(res => console.log('업종상위', res));
-        getTopTheme()
-            .then(res => console.log('테마상위', res));
-        getPopularitySearch()
-            .then(res => console.log('검색상위', res));
-        getForeignStockMarget()
-            .then(res => console.log('해외증시', res));
     }
 
     render() {
         return (
             <div className='FinanceProject-TopList'>
+                <Section1 />
+                <Section2 />
             </div>
         );
     }

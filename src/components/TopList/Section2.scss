@@ -1,0 +1,73 @@
+.FinanceProject-Section2 {
+
+    .Section2-TopList {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        .TopList-Info {
+            width: 25%;
+            margin: 1vh 4vw 2vh 4vw;
+            background: white;
+            padding: 1vh 1vw;
+            border-radius: 10px;
+            box-shadow:
+            0 1px 3px 0 rgba(0, 0, 0, 0.2),
+            0 1px 1px 0 rgba(0, 0, 0, 0.14),
+            0 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+            .Info-title {
+                width: 100%;
+                margin-bottom: 1vh;
+                display: flex;
+                align-items: center;
+
+                .title {
+                    width: 80%;
+                    font-weight: bold;
+                    font-size: 1.2em;
+                }
+            }
+
+            .Info-list {
+                padding-left: 0.5vw;
+
+                .topTradeList {
+                    display: flex;
+                    width: 100%;
+                    padding-bottom: 0.3vh;
+
+                    .topTradeList-title {
+                        width: 56%;
+                        padding-left: 0.3vw;
+                        font-size: 0.9em;
+                    }
+
+                    .topTradeList-content {
+                        width: 18%;
+                        padding-left: 1vw;
+                        font-size: 0.9em;
+                    }
+                }
+
+                .foreignStockMargetList {
+                    display: flex;
+                    width: 100%;
+                    padding-bottom: 0.3vh;
+
+                    .foreignStockMargetList-title {
+                        width: 40%;
+                        padding-left: 0.3vw;
+                        font-size: 0.9em;
+                    }
+
+                    .foreignStockMargetList-content {
+                        width: 30%;
+                        padding-left: 1vw;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
+    }
+}

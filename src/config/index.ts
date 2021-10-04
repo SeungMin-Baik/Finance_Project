@@ -5,7 +5,7 @@ const config = {
         /** Browser session storage key. */
         STOR_KEY: {
             /** App authentication state. */
-            AUTH: 'preview-test::user-session'
+            AUTH: 'finance::user-session'
         }
     },
 

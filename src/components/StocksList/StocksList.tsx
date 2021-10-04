@@ -50,13 +50,13 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
                 <div className='StocksList-Header'>
                     <div className='Header-Info' >
                         <Button className='Info-button' onClick={() => this.changeTab('KOSPI')}
-                                style={this.state.listType === 'KOSPI' ? {color: '#000000', background: '#f1f1f1b0'} : {color: '#dddddd'}}>
+                                style={this.state.listType === 'KOSPI' ? {color: '#000000', background: '#e9e9e9'} : {color: '#dddddd'}}>
                             코스피
                         </Button>
                     </div>
                     <div className='Header-Info'>
                         <Button className='Info-button' onClick={() => this.changeTab('KOSDAQ')}
-                                style={this.state.listType === 'KOSDAQ' ? {color: '#000000', background: '#f1f1f1b0'} : {color: '#dddddd'}}>
+                                style={this.state.listType === 'KOSDAQ' ? {color: '#000000', background: '#e9e9e9'} : {color: '#dddddd'}}>
                             코스닥
                         </Button>
                     </div>

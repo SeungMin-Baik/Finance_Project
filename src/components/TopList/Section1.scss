@@ -1,0 +1,73 @@
+.FinanceProject-Section1 {
+
+    .Section1-TopList {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        .TopList-Info {
+            width: 20%;
+            margin: 2vh 4vw 2vh 4vw;
+            background: white;
+            padding: 1vh 1vw;
+            border-radius: 10px;
+            box-shadow:
+            0 1px 3px 0 rgba(0, 0, 0, 0.2),
+            0 1px 1px 0 rgba(0, 0, 0, 0.14),
+            0 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+            .Info-title {
+                width: 100%;
+                margin-bottom: 1vh;
+                display: flex;
+                align-items: center;
+
+                .title {
+                    width: 80%;
+                    font-weight: bold;
+                    font-size: 1.2em;
+                }
+
+                .more {
+                    width: 20%;
+                    text-align: end;
+                    font-size: 0.9em;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: blue;
+                    }
+                }
+            }
+
+            .Info-list {
+                padding-left: 1vw;
+                .list {
+                    display: flex;
+                    width: 100%;
+                    padding-bottom: 0.3vh;
+
+                    .list-num {
+                        width: 5%;
+                        align-self: center;
+                        font-weight: bold;
+                        color: #00009f;
+                        font-size: 0.9em;
+                    }
+
+                    .list-title {
+                        width: 65%;
+                        padding-left: 0.3vw;
+                        font-size: 0.9em;
+                    }
+
+                    .list-content {
+                        width: 35%;
+                        padding-left: 1vw;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -7,7 +7,7 @@ import { replaceIndexesDummyData, replaceListDummyData, replaceAllDummyData } fr
 import store from '@app/store';
 
 /* Model */
-import { stockObject, topTrading, topIndustry, topTheme, popularitySearch } from './stocksListApi.model';
+import { stockObject, topTrading, topIndustry, topTheme, popularitySearch, foreignStockMarget } from './stocksListApi.model';
 
 export function getStocksList(type?: string, page?: number): Promise<any> {
     return new Promise<any>((resolve, reject) => {
@@ -408,7 +408,7 @@ export function getForeignStockMarget(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 
         const el = document.createElement('body');
-        const foreignStockMargetList: any = [];
+        const foreignStockMargetList: foreignStockMarget[] = [];
 
         axios.get<any>('https://finance.naver.com/')
             .then(res => res.request)
@@ -428,7 +428,7 @@ export function getForeignStockMarget(): Promise<any> {
                         const innerTextArr = innerText.split(' ');
 
                         if (innerTextArr.length === 6) {
-                            const popularitySearchObject: any = {
+                            const popularitySearchObject: foreignStockMarget = {
                                 item: innerTextArr[1],
                                 currentIndex: innerTextArr[2],
                                 updown: innerTextArr[3],
