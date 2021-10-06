@@ -7,7 +7,7 @@ import * as WebpackDashboardPlugin from 'webpack-dashboard/plugin';
 import baseConfig from './webpack.config.base';
 import port from './serve-port';
 
-const config = merge(baseConfig, {
+const config: any = merge(baseConfig, {
     mode: 'development',
 
     entry: [

@@ -10,7 +10,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import * as WebpackMd5Hash from 'webpack-md5-hash';
 import baseConfig from './webpack.config.base';
 
-const config = merge(baseConfig, {
+const config: any = merge(baseConfig, {
     mode: 'production',
 
     entry: {

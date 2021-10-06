@@ -1,3 +1,50 @@
 .FinanceProject-IndustryThemeDetail {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 5vh 0 5vh 5vw;
 
+    .IndustryThemeDetail-IndustryThemeList {
+        width: 30%;
+
+        .IndustryThemeList-Header {
+            font-weight: bold;
+            padding-bottom: 3vh;
+            font-size: 1.7em;
+        }
+
+        .IndustryThemeList-Title {
+            display: flex;
+
+            .Title-Info {
+                width: 50%;
+                font-size: 0.8em;
+                padding-bottom: 1vh;
+            }
+        }
+
+        .IndustryThemeList-Body {
+            .Body-Info {
+                display: flex;
+
+                .Info-text {
+                    width: 50%;
+                    padding-bottom: 1vh;
+                    padding-top: 1vh;
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+
+    .dummy-horizenLine {
+        border-bottom: 1px solid #e5e5e5;
+        width: 25vw;
+    }
+
+    .dummy-verticalLine {
+        border-right: 1px solid #ededed;
+        margin-right: 5vw;
+        margin-left: 3vw;
+    }
 }

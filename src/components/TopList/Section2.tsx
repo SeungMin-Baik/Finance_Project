@@ -35,8 +35,6 @@ class Section2 extends React.Component<Section2Props, Section2States> {
     }
 
     componentDidUpdate() {
-        console.log('해외증시', this.state.foreignStockMargetList);
-        console.log('거래상위', this.state.topTradeList);
     }
 
     render() {
