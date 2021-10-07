@@ -11,7 +11,8 @@ export type stockObject = {
     foreignersProportion: string,
     volume: string,
     per: string,
-    roe: string
+    roe: string,
+    indexCode?: string
 };
 
 export type topTrading = {
@@ -44,7 +45,8 @@ export type popularitySearch = {
     highPrice: string,
     lowPrice: string,
     per: string,
-    roe: string
+    roe: string,
+    indexCode?: string
 };
 
 export type foreignStockMarget = {

@@ -63,15 +63,15 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
                 </div>
 
                 <div className='StocksList-Title'>
-                    {
-                        this.titleList.map(title => {
-                            return (
-                                <div className='Title-Info'>
-                                    {title}
-                                </div>
-                            );
-                        })
-                    }
+                {
+                    this.titleList.map(title => {
+                        return (
+                            <div className='Title-Info'>
+                                {title}
+                            </div>
+                        );
+                    })
+                }
                 </div>
 
                 <table className='StocksList-Body'>
@@ -84,7 +84,7 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
                                 <td className='Info-text'>
                                     {stock.num}
                                 </td>
-                                <td className='Info-text'>
+                                <td className='Info-hyperText'>
                                     {stock.item}
                                 </td>
                                 <td className='Info-text'>

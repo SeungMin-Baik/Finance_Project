@@ -7,6 +7,7 @@ import HomeInfo from './Info/HomeInfo';
 // StyleSeet
 import './Home.scss';
 
+
 type HometStates = { };
 
 /* Route home*/

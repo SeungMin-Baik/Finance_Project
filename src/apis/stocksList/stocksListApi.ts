@@ -36,8 +36,8 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                         if (await replaceAllDummyData((el.querySelectorAll('.box_type_l > .type_2 > tbody > tr')[i] as HTMLElement).innerText) !== '') {
 
                             const innerText = await replaceListDummyData((el.querySelectorAll('.box_type_l > .type_2 > tbody > tr')[i] as HTMLElement).innerText);
-
                             const innerTextArr = innerText.split(' ');
+
                             if (innerTextArr.length === 14) {
                                 const stockObject = {
                                     num: innerTextArr[1],
@@ -51,7 +51,8 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                                     foreignersProportion: innerTextArr[9],
                                     volume: innerTextArr[10],
                                     per: innerTextArr[11],
-                                    roe: innerTextArr[12]
+                                    roe: innerTextArr[12],
+                                    // indexCode: getCode.substring(getCode.indexOf('=') + 1)
                                 };
 
                                 stocksList.push(stockObject);
@@ -70,7 +71,8 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                                     foreignersProportion: innerTextArr[10],
                                     volume: innerTextArr[11],
                                     per: innerTextArr[12],
-                                    roe: innerTextArr[13]
+                                    roe: innerTextArr[13],
+                                    // indexCode: getCode.substring(getCode.indexOf('=') + 1)
                                 };
 
                                 stocksList.push(stockObject);
@@ -89,7 +91,8 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                                     foreignersProportion: innerTextArr[11],
                                     volume: innerTextArr[12],
                                     per: innerTextArr[13],
-                                    roe: innerTextArr[14]
+                                    roe: innerTextArr[14],
+                                    // indexCode: getCode.substring(getCode.indexOf('=') + 1)
                                 };
 
                                 stocksList.push(stockObject);
@@ -98,10 +101,22 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                     }
                 }
             })
+            .then(() => {
+                if (el.querySelectorAll('.box_type_l > .type_2 > tbody > tr') && el.querySelectorAll('.box_type_l > .type_2 > tbody > tr').length > 0) {
+
+                    for (let i = 0; i < el.querySelectorAll('.box_type_l > .type_2 > tbody > tr').length - 1; i++) {
+                        if (el.querySelectorAll('.box_type_l > .type_2 > tbody > tr > td > a.tltle')[i] as HTMLElement !== undefined) {
+                            const indexCode = (el.querySelectorAll('.box_type_l > .type_2 > tbody > tr > td > a.tltle')[i] as HTMLElement).getAttribute('href');
+                            stocksList[i].indexCode = indexCode.substring(indexCode.indexOf('=') + 1);
+                        }
+                    }
+                }
+            })
             .then(() => resolve(stocksList))
             .catch(reject);
     });
 }
+
 
 export function getTopTrading(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
@@ -137,7 +152,7 @@ export function getTopTrading(): Promise<any> {
                                     fluctuation: innerTextArr[5]
                                 };
 
-                                await topTradingList.push(topTradingObject);
+                                topTradingList.push(topTradingObject);
                             }
 
                             if (innerTextArr.length === 8) {
@@ -149,7 +164,7 @@ export function getTopTrading(): Promise<any> {
                                     fluctuation: innerTextArr[6]
                                 };
 
-                                await topTradingList.push(topTradingObject);
+                                topTradingList.push(topTradingObject);
                             }
 
                             if (innerTextArr.length === 9) {
@@ -161,7 +176,7 @@ export function getTopTrading(): Promise<any> {
                                     fluctuation: innerTextArr[7]
                                 };
 
-                                await topTradingList.push(topTradingObject);
+                                topTradingList.push(topTradingObject);
                             }
                     }
                 }
@@ -200,7 +215,7 @@ export function getTopIndustries(): Promise<any> {
                                 fluctuation: innerTextArr[2]
                             };
 
-                            await topIndustryList.push(topIndustries);
+                            topIndustryList.push(topIndustries);
                         }
 
                         if (innerTextArr.length === 10) {
@@ -209,7 +224,7 @@ export function getTopIndustries(): Promise<any> {
                                 fluctuation: innerTextArr[3]
                             };
 
-                            await topIndustryList.push(topIndustries);
+                            topIndustryList.push(topIndustries);
                         }
                     }
                 }
@@ -251,7 +266,7 @@ export function getTopTheme(): Promise<any> {
                                 fluctuation: innerTextArr[2]
                             };
 
-                            await topThemeList.push(topThemeObject);
+                            topThemeList.push(topThemeObject);
                         }
 
                         if (innerTextArr.length === 11) {
@@ -260,7 +275,7 @@ export function getTopTheme(): Promise<any> {
                                 fluctuation: innerTextArr[3]
                             };
 
-                            await topThemeList.push(topThemeObject);
+                            topThemeList.push(topThemeObject);
                         }
 
                         if (innerTextArr.length === 12) {
@@ -269,7 +284,7 @@ export function getTopTheme(): Promise<any> {
                                 fluctuation: innerTextArr[4]
                             };
 
-                            await topThemeList.push(topThemeObject);
+                            topThemeList.push(topThemeObject);
                         }
                     }
                 }
@@ -318,7 +333,7 @@ export function getPopularitySearch(): Promise<any> {
                                 roe: innerTextArr[12]
                             };
 
-                            await popularitySearchList.push(popularitySearchObject);
+                            popularitySearchList.push(popularitySearchObject);
                         }
 
                         if (innerTextArr.length === 15) {
@@ -337,7 +352,7 @@ export function getPopularitySearch(): Promise<any> {
                                 roe: innerTextArr[13]
                             };
 
-                            await popularitySearchList.push(popularitySearchObject);
+                            popularitySearchList.push(popularitySearchObject);
                         }
 
                         if (innerTextArr.length === 16) {
@@ -356,7 +371,7 @@ export function getPopularitySearch(): Promise<any> {
                                 roe: innerTextArr[14]
                             };
 
-                            await popularitySearchList.push(popularitySearchObject);
+                            popularitySearchList.push(popularitySearchObject);
                         }
 
                         if (innerTextArr.length === 17) {
@@ -375,7 +390,7 @@ export function getPopularitySearch(): Promise<any> {
                                 roe: innerTextArr[15]
                             };
 
-                            await popularitySearchList.push(popularitySearchObject);
+                            popularitySearchList.push(popularitySearchObject);
                         }
 
                         if (innerTextArr.length === 18) {
@@ -394,7 +409,18 @@ export function getPopularitySearch(): Promise<any> {
                                 roe: innerTextArr[16]
                             };
 
-                            await popularitySearchList.push(popularitySearchObject);
+                            popularitySearchList.push(popularitySearchObject);
+                        }
+                    }
+                }
+            })
+            .then(() => {
+                if (el.querySelectorAll('.type_5 > tbody > tr') && el.querySelectorAll('.type_5 > tbody > tr').length > 0) {
+
+                    for (let i = 0; i < el.querySelectorAll('.type_5 > tbody > tr').length - 1; i++) {
+                        if (el.querySelectorAll('.type_5 > tbody > tr > td > a.tltle')[i] as HTMLElement !== undefined) {
+                            const indexCode = (el.querySelectorAll('.type_5 > tbody > tr > td > a.tltle')[i] as HTMLElement).getAttribute('href');
+                            popularitySearchList[i].indexCode = indexCode.substring(indexCode.indexOf('=') + 1);
                         }
                     }
                 }
@@ -436,7 +462,7 @@ export function getForeignStockMarget(): Promise<any> {
 
                             };
 
-                            await foreignStockMargetList.push(popularitySearchObject);
+                            foreignStockMargetList.push(popularitySearchObject);
                         }
 
                         if (innerTextArr.length === 7) {
@@ -448,7 +474,7 @@ export function getForeignStockMarget(): Promise<any> {
 
                             };
 
-                            await foreignStockMargetList.push(popularitySearchObject);
+                            foreignStockMargetList.push(popularitySearchObject);
                         }
                     }
                 }

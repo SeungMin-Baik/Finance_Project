@@ -1,3 +1,71 @@
 .FinanceProject-PopularitySearchDetail {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 5vh 0 5vh 5vw;
+
+    .PopularitySearchDetail-PopularitySearchList {
+        width: 75%;
+        border-left: 1px solid #ededed;
+        border-right: 1px solid #ededed;
+
+        .PopularitySearchList-Header {
+            font-weight: bold;
+            padding-bottom: 3vh;
+            font-size: 1.7em;
+            text-align: center;
+        }
+
+        .PopularitySearchList-Title {
+            display: flex;
+            padding: 2vh 0 1vh;
+            justify-content: center;
+            width: 100%;
     
+            .Title-Info {
+                width: 7%;
+                text-align: center;
+                font-size: 0.8em;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 1vh;
+            }
+        }
+
+        .PopularitySearchList-Body {
+            width: 100%;
+
+            .Body-Info {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                padding: 0.5vh 0;
+
+                &:hover {
+                    background: rgb(243, 243, 243);
+                }
+    
+                .Info-text {
+                    width: 7%;
+                    text-align: center;
+                    font-size: 0.8em;
+                    border-bottom: 1px solid #ededed;
+                    padding-bottom: 1vh;
+                }
+
+                .Info-hyperText {
+                    width: 7%;
+                    text-align: center;
+                    font-size: 0.8em;
+                    border-bottom: 1px solid #ededed;
+                    padding-bottom: 1vh;
+    
+                    &:hover {
+                        cursor: pointer;
+                        color: rgb(46, 46, 247);
+                    }
+                }
+            }
+        }
+    }
+
 }

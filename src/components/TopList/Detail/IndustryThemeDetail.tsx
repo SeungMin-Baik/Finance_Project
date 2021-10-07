@@ -34,8 +34,6 @@ class IndustryThemeDetail extends React.Component<IndustryThemeDetailProps, Indu
     }
 
     componentDidUpdate() {
-        console.log('industryList', this.state.industryList);
-        console.log('themeList', this.state.themeList);
     }
 
     render() {
