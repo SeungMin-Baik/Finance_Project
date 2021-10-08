@@ -7,6 +7,7 @@ export type indexObjectType = {
     chart: any;
     en: string;
     ko: string;
+    indexCode: string;
 };
 
 export type stockObject = {

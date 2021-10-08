@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Switch, Route } from 'react-router';
 
+import IndexesDialog from './Dialog';
+
 // API
 import { getTodayIndexes, indexObjectType } from '@app/apis/indexes';
 
@@ -9,6 +11,8 @@ import './Indexes.scss';
 
 type IndexestStates = {
     indexes: indexObjectType[];
+    isVisible: boolean;
+    indexOne: any;
 };
 
 /* Route Indexes*/
@@ -16,7 +20,9 @@ class Indexes extends React.Component<{}, IndexestStates> {
     constructor(props: {}) {
         super(props);
         this.state = {
-            indexes: []
+            indexes: [],
+            isVisible: false,
+            indexOne: {}
         };
     }
 
@@ -29,13 +35,22 @@ class Indexes extends React.Component<{}, IndexestStates> {
 
     render() {
         return (
+        <>
+        {
+            this.state.isVisible ?
+                <IndexesDialog
+                    indexData={this.state.indexOne}
+                    closeDialog={this.onDialog}
+                />
+            : null
+        }
             <div className='FinanceProject-Indexes'>
                 <div className='Indexes-Dummy'/>
                 {
                     this.state.indexes && this.state.indexes.length > 0 ?
                         this.state.indexes.map(index => {
                             return (
-                                <div className='Indexes-Info'>
+                                <div className='Indexes-Info' onClick={() => this.onDialog(true, index)}>
 
                                     <div className='Info-Title'>
                                         <span className='Title-ko'> {index.ko} </span>
@@ -64,6 +79,7 @@ class Indexes extends React.Component<{}, IndexestStates> {
                     : <div> data err </div>
                 }
             </div>
+        </>
         );
     }
 
@@ -71,6 +87,14 @@ class Indexes extends React.Component<{}, IndexestStates> {
         await getTodayIndexes()
             .then(res => this.setState({ indexes: res }))
             .catch(err => console.error(err));
+    }
+
+    private onDialog = (check: boolean, data?: any) => {
+        this.setState({ indexOne: data }, () => {
+            this.setState({
+                isVisible: check
+            });
+        });
     }
 
 }
