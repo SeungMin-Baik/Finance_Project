@@ -9,6 +9,9 @@ import { Link } from 'react-router-dom';
 // API
 import { getStocksList, stockObject } from '@app/apis/stocksList';
 
+// Component
+import StockDetailDialog from './Dialog';
+
 // StyleSheet
 import './StocksList.scss';
 
@@ -20,6 +23,8 @@ type StocksListtStates = {
     stocksList: stockObject[];
     listType: string;
     page: number;
+    stockOne: stockObject;
+    isVisible: boolean;
 };
 
 class StocksList extends React.Component<StocksListProps, StocksListtStates> {
@@ -32,7 +37,9 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
         this.state = {
             stocksList: [],
             listType: 'KOSPI',
-            page: 1
+            page: 1,
+            stockOne: {} as stockObject,
+            isVisible: false
         };
     }
 
@@ -46,6 +53,15 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
     render() {
 
         return (
+        <>
+            {
+                this.state.isVisible ?
+                    <StockDetailDialog
+                        stockData={this.state.stockOne}
+                        closeDialog={this.onDialog}
+                    />
+                : null
+            }
             <div className='FinanceProject-StocksList'>
                 <div className='StocksList-Header'>
                     <div className='Header-Info' >
@@ -84,7 +100,7 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
                                 <td className='Info-text'>
                                     {stock.num}
                                 </td>
-                                <td className='Info-hyperText'>
+                                <td className='Info-hyperText' onClick={() => this.onDialog(true, stock)}>
                                     {stock.item}
                                 </td>
                                 <td className='Info-text'>
@@ -146,6 +162,7 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
                 </div>
 
             </div>
+        </>
         );
     }
 
@@ -175,6 +192,14 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
         else if (change === 'init') {
             this.setState({ page: 1}, () => this.callApiToFetch());
         }
+    }
+
+    private onDialog = (check: boolean, data?: any) => {
+        this.setState({ stockOne: data }, () => {
+            this.setState({
+                isVisible: check
+            });
+        });
     }
 
 }

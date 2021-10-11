@@ -51,8 +51,7 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                                     foreignersProportion: innerTextArr[9],
                                     volume: innerTextArr[10],
                                     per: innerTextArr[11],
-                                    roe: innerTextArr[12],
-                                    // indexCode: getCode.substring(getCode.indexOf('=') + 1)
+                                    roe: innerTextArr[12]
                                 };
 
                                 stocksList.push(stockObject);
@@ -71,8 +70,7 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                                     foreignersProportion: innerTextArr[10],
                                     volume: innerTextArr[11],
                                     per: innerTextArr[12],
-                                    roe: innerTextArr[13],
-                                    // indexCode: getCode.substring(getCode.indexOf('=') + 1)
+                                    roe: innerTextArr[13]
                                 };
 
                                 stocksList.push(stockObject);
@@ -91,8 +89,7 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                                     foreignersProportion: innerTextArr[11],
                                     volume: innerTextArr[12],
                                     per: innerTextArr[13],
-                                    roe: innerTextArr[14],
-                                    // indexCode: getCode.substring(getCode.indexOf('=') + 1)
+                                    roe: innerTextArr[14]
                                 };
 
                                 stocksList.push(stockObject);

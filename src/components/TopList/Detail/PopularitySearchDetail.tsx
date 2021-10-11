@@ -69,7 +69,7 @@ class PopularitySearchDetail extends React.Component<PopularitySearchDetailProps
                                 <>
                                 <div className='Body-Info'>
                                     <div className='Info-text'> {search.num} </div>
-                                    <div className='Info-hyperText'> {search.item} </div>
+                                    <div className='Info-text'> {search.item} </div>
                                     <div className='Info-text'> {search.rate} </div>
                                     <div className='Info-text'> {search.currentPrice} </div>
                                     <div className='Info-text' style={search.fluctuation.substring(0, 1) === '+' ? {color: 'red'}
