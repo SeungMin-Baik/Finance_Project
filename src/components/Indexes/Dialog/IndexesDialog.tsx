@@ -1,23 +1,27 @@
 import * as React from 'react';
 
+/** for UI */
 import Button from '@material-ui/core/Button';
 import Grow from '@material-ui/core/Grow';
 
+/** API */
 import { getIndexOne } from '@app/apis/indexes';
 
-// Stylesheet
+/** Stylesheet */
 import './IndexesDialog.scss';
 
+/** Props of `IndexesDialog` component. */
 type IndexesDialogProps = {
     indexData: any;
     closeDialog: Function;
 };
 
+/** States of `IndexesDialog` component. */
 type IndexesDialogState = {
     index: Array<any>;
 };
 
-
+/** IndexesDialog Compoent */
 class IndexesDialog extends React.Component<IndexesDialogProps, IndexesDialogState> {
     constructor(props: IndexesDialogProps) {
         super(props);
@@ -27,11 +31,11 @@ class IndexesDialog extends React.Component<IndexesDialogProps, IndexesDialogSta
     }
 
     componentDidMount() {
+        /** Call API */
         this.callApiToFetch();
     }
 
     componentDidUpdate() {
-        console.log('index', this.state.index);
     }
 
     render() {
@@ -43,13 +47,16 @@ class IndexesDialog extends React.Component<IndexesDialogProps, IndexesDialogSta
 
                     <Grow in={true}>
                     <div className='IndexesDialog-Content'>
+                        {/** Title of Dialog */}
                         <div className='Content-Title'>
                             <div className='Title-info'>
                                 { this.props.indexData.ko} 정보
                             </div>
                         </div>
-                        <div className='Content-Info'>
 
+                        {/** Body of Dialog */}
+                        <div className='Content-Info'>
+                            {/** left side */}
                             <div className='Info-Section1'>
                                 <div className='Section1-Title'>
                                     <span className='Title-ko'> {this.props.indexData.ko} </span>
@@ -58,6 +65,7 @@ class IndexesDialog extends React.Component<IndexesDialogProps, IndexesDialogSta
                                 <img src={this.props.indexData.chart} className='chart' />
                             </div>
 
+                            {/** right side */}
                             <div className='Info-Section2'>
                                 <div className='Section2-Index'>
                                     <span className='Index-index' style={ this.props.indexData.blind === '상승' ? { color: 'red' } : this.props.indexData.blind === '하락' ? { color: 'blue' } : { color: 'black'} }>
@@ -95,6 +103,7 @@ class IndexesDialog extends React.Component<IndexesDialogProps, IndexesDialogSta
                             </div>
                         </div>
 
+                        {/** buttons on foot */}
                         <div className='Content-Foot'>
                             <Button variant='outlined' className='Foot-Info' onClick={() => this.props.closeDialog(false)}>
                                 닫기
@@ -109,6 +118,7 @@ class IndexesDialog extends React.Component<IndexesDialogProps, IndexesDialogSta
         );
     }
 
+    /** call api and fetch data */
     private callApiToFetch = async() => {
         getIndexOne(this.props.indexData.indexCode)
             .then(res => this.setState({ index: res }))

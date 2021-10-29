@@ -1,23 +1,22 @@
 import * as React from 'react';
-import { push } from 'connected-react-router';
-import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
 
-// Store
+/** Route */
+import { push } from 'connected-react-router';
+
+/** Store */
 import store from '@app/store';
 
-// Stylesheets
+/** Stylesheets */
 import './StartPageInfo.scss';
 
 
 /** Props of `StartPageInfo` component. */
-type StartPageInfoProps = { };
+type StartPageInfoProps = {};
 
 /** States of `StartPageInfo` component. */
-type StartPageInfoStates = {
-};
+type StartPageInfoStates = {};
 
-/* Start Button for Link home*/
+/* StartPageInfo Component */
 class StartPageInfo extends React.Component<StartPageInfoProps, StartPageInfoStates> {
     constructor(props: StartPageInfoProps) {
         super(props);
@@ -28,7 +27,9 @@ class StartPageInfo extends React.Component<StartPageInfoProps, StartPageInfoSta
     render() {
         return (
             <div className='FinanceProject-StartPageInfo'>
+                {/** Title of StartPage */}
                 <div className='StartPageInfo-Title'> Project that can check<br/>Financial Information. </div>
+                {/** Button for Link Home */}
                 <button className='StartPageInfo-StartButton' onClick={this.LinkToHome}>
                     <div className='StartButton-Text'> Get Info </div>
                 </button>
@@ -36,6 +37,7 @@ class StartPageInfo extends React.Component<StartPageInfoProps, StartPageInfoSta
         );
     }
 
+    /** Link to home */
     private LinkToHome = () => {
         store.dispatch(push('/home'));
     }

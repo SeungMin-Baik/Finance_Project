@@ -1,18 +1,21 @@
 import * as React from 'react';
 
+/** Store */
 import store from '@app/store';
+
+/** Route */
 import { push } from 'connected-react-router';
 
+/** Icons and for UI */
 import { Tooltip } from '@material-ui/core';
-
 import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import BookIcon from '@material-ui/icons/Book';
 
-// Icon
+/** Icon Image */
 import financeIcon from '@public/media/financeIcon.png';
 
-// Stylesheet
+/** Stylesheet */
 import './BaseNavBar.scss';
 
 
@@ -22,9 +25,8 @@ type BaseNavBarProps = {
     style?: React.CSSProperties;
 };
 
-type BaseNavBarStates = {
-
-};
+/** States of `BaseNavBar` component. */
+type BaseNavBarStates = {};
 
 /* Navbar in top*/
 class BaseNavBar extends React.Component<BaseNavBarProps, BaseNavBarStates> {
@@ -34,20 +36,18 @@ class BaseNavBar extends React.Component<BaseNavBarProps, BaseNavBarStates> {
         };
     }
 
-
-componentDidMount() {
-}
-
 render() {
 
         return (
             <nav className='FinanceProject-NavBar' style={this.props.style}>
 
+                {/** Link to Home */}
                 <div className='NavBar-LinkHome' onClick={this.LinkToHome}>
                     <div className='LinkHome-Icon'> <img src={financeIcon} /> </div>
                     <div className='LinkHome-Text'> Finance </div>
                 </div>
 
+                {/** Link to github and blog */}
                 <div className='NavBar-MyInfo'>
                     <Tooltip title='qortmdalsdl22@gmail.com'>
                         <EmailIcon className='NavBar-MyInfo-Icon' />
@@ -66,15 +66,17 @@ render() {
         );
     }
 
-    /* Link to home */
+    /** Link to home */
     private LinkToHome = () => {
         store.dispatch(push('/home'));
     }
 
+    /** open browser for github */
     private openGithub = () => {
         window.open('https://github.com/SeungMin-Baik', 'newWindow');
     }
 
+    /** open browser for blog */
     private openBlog = () => {
         window.open('https://velog.io/@qortmdalsdl', 'newWindow');
     }

@@ -1,12 +1,13 @@
 import axios from 'axios';
 
-/* Utils */
+/** Utils */
 import { replaceIndexesDummyData, replaceListDummyData, replaceAllDummyData } from '@app/utils';
 
 
-/* Model */
+/** Model */
 import { indexObjectType } from './indexesApi.model';
 
+/** get today's kospi, kosdaq, kospi 200 information */
 export function getTodayIndexes(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 
@@ -53,6 +54,7 @@ export function getTodayIndexes(): Promise<any> {
     });
 }
 
+/** get today's one of kospi, kosdaq, or kospi 200 */
 export function getIndexOne(code: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 

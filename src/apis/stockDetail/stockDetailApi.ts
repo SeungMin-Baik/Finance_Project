@@ -1,13 +1,9 @@
 import axios from 'axios';
 
-/* Utils */
+/** Utils */
 import { replaceListDummyData } from '@app/utils';
 
-
-/* Model */
-
-
-
+/** get one of stock information */
 export function getStockOne(code: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 

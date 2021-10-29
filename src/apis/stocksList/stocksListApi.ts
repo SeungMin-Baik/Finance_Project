@@ -1,14 +1,12 @@
 import axios from 'axios';
 
-/* Utils */
+/** Utils */
 import { replaceIndexesDummyData, replaceListDummyData, replaceAllDummyData } from '@app/utils';
 
-/* Store*/
-import store from '@app/store';
-
-/* Model */
+/** Model */
 import { stockObject, topTrading, topIndustry, topTheme, popularitySearch, foreignStockMarget } from './stocksListApi.model';
 
+/** get stocks list */
 export function getStocksList(type?: string, page?: number): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 
@@ -29,6 +27,7 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                 el.innerHTML = res;
             })
             .then(async res => {
+                /** get stcoks data */
                 if (el.querySelectorAll('.box_type_l > .type_2 > tbody > tr') && el.querySelectorAll('.box_type_l > .type_2 > tbody > tr').length > 0) {
 
                     for (let i = 0; i < el.querySelectorAll('.box_type_l > .type_2 > tbody > tr').length - 1; i++) {
@@ -38,6 +37,7 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                             const innerText = await replaceListDummyData((el.querySelectorAll('.box_type_l > .type_2 > tbody > tr')[i] as HTMLElement).innerText);
                             const innerTextArr = innerText.split(' ');
 
+                            /** data parsing */
                             if (innerTextArr.length === 14) {
                                 const stockObject = {
                                     num: innerTextArr[1],
@@ -99,6 +99,7 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
                 }
             })
             .then(() => {
+                /** get stocks code */
                 if (el.querySelectorAll('.box_type_l > .type_2 > tbody > tr') && el.querySelectorAll('.box_type_l > .type_2 > tbody > tr').length > 0) {
 
                     for (let i = 0; i < el.querySelectorAll('.box_type_l > .type_2 > tbody > tr').length - 1; i++) {
@@ -114,7 +115,7 @@ export function getStocksList(type?: string, page?: number): Promise<any> {
     });
 }
 
-
+/** get top trading information */
 export function getTopTrading(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 
@@ -128,7 +129,7 @@ export function getTopTrading(): Promise<any> {
                 el.innerHTML = res;
             })
             .then(async res => {
-
+                /** get top trading data */
                 if (el.querySelectorAll('.article > .section > .section_sise_top > .group_type.is_active > .tbl_home > tbody > tr') &&
                     el.querySelectorAll('.article > .section > .section_sise_top > .group_type.is_active > .tbl_home > tbody > tr').length > 0) {
 
@@ -140,6 +141,7 @@ export function getTopTrading(): Promise<any> {
 
                             const innerTextArr = innerText.split(' ');
 
+                            /** data parsing */
                             if (innerTextArr.length === 7) {
                                 const topTradingObject: topTrading = {
                                     item: innerTextArr[1],
@@ -183,6 +185,7 @@ export function getTopTrading(): Promise<any> {
     });
 }
 
+/** get top industries information */
 export function getTopIndustries(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 
@@ -196,7 +199,7 @@ export function getTopIndustries(): Promise<any> {
                 el.innerHTML = res;
             })
             .then(async res => {
-
+                /** get top industries data */
                 if (el.querySelectorAll('.type_1 > tbody > tr') &&
                     el.querySelectorAll('.type_1 > tbody > tr').length > 0) {
 
@@ -206,6 +209,7 @@ export function getTopIndustries(): Promise<any> {
 
                         const innerTextArr = innerText.split(' ');
 
+                        /** data parsing */
                         if (innerTextArr.length === 9) {
                             const topIndustries: any = {
                                 item: innerTextArr[1],
@@ -234,6 +238,7 @@ export function getTopIndustries(): Promise<any> {
     });
 }
 
+/** get top theme information */
 export function getTopTheme(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 
@@ -247,7 +252,7 @@ export function getTopTheme(): Promise<any> {
                 el.innerHTML = res;
             })
             .then(async res => {
-
+                /** get top theme data */
                 if (el.querySelectorAll('.type_1.theme > tbody > tr') &&
                     el.querySelectorAll('.type_1.theme > tbody > tr').length > 0) {
 
@@ -257,6 +262,7 @@ export function getTopTheme(): Promise<any> {
 
                         const innerTextArr = innerText.split(' ');
 
+                        /** data parsing */
                         if (innerTextArr.length === 10) {
                             const topThemeObject: topTheme = {
                                 item: innerTextArr[1],
@@ -291,6 +297,7 @@ export function getTopTheme(): Promise<any> {
     });
 }
 
+/** get popularity search information */
 export function getPopularitySearch(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 
@@ -304,7 +311,7 @@ export function getPopularitySearch(): Promise<any> {
                 el.innerHTML = res;
             })
             .then(async res => {
-
+                /** get popularity search data */
                 if (el.querySelectorAll('.type_5 > tbody > tr') &&
                     el.querySelectorAll('.type_5 > tbody > tr').length > 0) {
 
@@ -314,6 +321,7 @@ export function getPopularitySearch(): Promise<any> {
 
                         const innerTextArr = innerText.split(' ');
 
+                        /** data parsing */
                         if (innerTextArr.length === 14) {
                             const popularitySearchObject: popularitySearch = {
                                 num: innerTextArr[1],
@@ -412,6 +420,7 @@ export function getPopularitySearch(): Promise<any> {
                 }
             })
             .then(() => {
+                /** get stocks code */
                 if (el.querySelectorAll('.type_5 > tbody > tr') && el.querySelectorAll('.type_5 > tbody > tr').length > 0) {
 
                     for (let i = 0; i < el.querySelectorAll('.type_5 > tbody > tr').length - 1; i++) {
@@ -427,6 +436,7 @@ export function getPopularitySearch(): Promise<any> {
     });
 }
 
+/** get foreign stock marget information */
 export function getForeignStockMarget(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
 
@@ -441,6 +451,7 @@ export function getForeignStockMarget(): Promise<any> {
             })
             .then(async res => {
 
+                /** get foreign stock marget data */
                 if (el.querySelectorAll('.aside > .group_aside > .aside_area.aside_stock > .tbl_home > tbody > tr') &&
                     el.querySelectorAll('.aside > .group_aside > .aside_area.aside_stock > .tbl_home > tbody > tr').length > 0) {
 
@@ -450,6 +461,7 @@ export function getForeignStockMarget(): Promise<any> {
 
                         const innerTextArr = innerText.split(' ');
 
+                        /** data parsing */
                         if (innerTextArr.length === 6) {
                             const popularitySearchObject: foreignStockMarget = {
                                 item: innerTextArr[1],

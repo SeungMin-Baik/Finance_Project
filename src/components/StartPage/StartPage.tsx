@@ -1,12 +1,15 @@
 import * as React from 'react';
+
+/** Route */
 import { Switch, Route, Redirect } from 'react-router';
+
+/** Component */
 import StartPageInfo from './Info';
 
-// Image
+/** Image */
 import financeImage from '@public/media/financeImage.png';
 
-
-// Stylesheets
+/** Stylesheets */
 import './StartPage.scss';
 
 
@@ -17,22 +20,20 @@ type StartPageProps = {};
 type StartPageStates = {
 };
 
-/* Route StartPage */
+/* StartPage Component */
 class StartPage extends React.Component<StartPageProps, StartPageStates> {
     constructor(props: StartPageProps) {
         super(props);
         this.state = {
-            tabIndex: 0
         };
     }
 
-    componentDidMount() {
-    }
 
     render() {
         return (
             <div className='FinanceProject-StartPage' style={{ backgroundImage: `url('${financeImage}')` }}>
                 <div className='StartPage-contents'>
+                    {/** Routing */}
                     <Switch>
                         <Route
                             path='/'

@@ -1,21 +1,25 @@
 import * as React from 'react';
-import { Switch, Route } from 'react-router';
 
+/** Component */
 import IndexesDialog from './Dialog';
 
-// API
+/** API */
 import { getTodayIndexes, indexObjectType } from '@app/apis/indexes';
 
-// StyleSeet
+/** StyleSeet */
 import './Indexes.scss';
 
+/** States of `Indexes` component. */
 type IndexestStates = {
+    /** indexes array */
     indexes: indexObjectType[];
+    /** for dialog */
     isVisible: boolean;
-    indexOne: any;
+    /** index data */
+    indexOne: Object;
 };
 
-/* Route Indexes*/
+/* Indexes Component */
 class Indexes extends React.Component<{}, IndexestStates> {
     constructor(props: {}) {
         super(props);
@@ -27,16 +31,15 @@ class Indexes extends React.Component<{}, IndexestStates> {
     }
 
     componentDidMount() {
+        /** Call API */
         this.callApiToFetch();
-    }
-
-    componentDidUpdate() {
     }
 
     render() {
         return (
         <>
         {
+            /** dialog */
             this.state.isVisible ?
                 <IndexesDialog
                     indexData={this.state.indexOne}
@@ -45,18 +48,21 @@ class Indexes extends React.Component<{}, IndexestStates> {
             : null
         }
             <div className='FinanceProject-Indexes'>
+                {/** dummy line */}
                 <div className='Indexes-Dummy'/>
                 {
                     this.state.indexes && this.state.indexes.length > 0 ?
                         this.state.indexes.map(index => {
                             return (
+                                /** index information */
                                 <div className='Indexes-Info' onClick={() => this.onDialog(true, index)}>
 
+                                    {/** title of index */}
                                     <div className='Info-Title'>
                                         <span className='Title-ko'> {index.ko} </span>
                                         <span className='Title-en'> {index.en} </span>
                                     </div>
-
+                                    {/** data of index */}
                                     <div className='Info-Index'>
                                         <span className='Index-index' style={ index.blind === '상승' ? { color: 'red' } : index.blind === '하락' ? { color: 'blue' } : { color: 'black'} }>
                                             {index.index}
@@ -69,7 +75,7 @@ class Indexes extends React.Component<{}, IndexestStates> {
                                             {index.per}
                                         </span>
                                     </div>
-
+                                    {/** chart of index */}
                                     <div className='Info-Chart'>
                                         <img src={index.chart} className='chart' />
                                     </div>
@@ -83,12 +89,14 @@ class Indexes extends React.Component<{}, IndexestStates> {
         );
     }
 
+    /** Call Api and fetch data */
     private callApiToFetch = async() => {
         await getTodayIndexes()
             .then(res => this.setState({ indexes: res }))
             .catch(err => console.error(err));
     }
 
+    /** Controll Dialog */
     private onDialog = (check: boolean, data?: any) => {
         this.setState({ indexOne: data }, () => {
             this.setState({

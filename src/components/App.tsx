@@ -2,16 +2,16 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router';
 import Loadable from 'react-loadable';
 
-// Custom Components
+/** Component */
 import { AppBaseNavBar } from '@app/components/AppPartial';
 
-// Other components
+/** Other components */
 import {
     Loading as LoadingPage,
     NotFound as NotFoundComponent
 } from './Others';
 
-// Stylesheet
+/** Stylesheet */
 import './App.scss';
 
 
@@ -41,6 +41,7 @@ type AppComponentProps = { };
 type AppComponentStates = {
 };
 
+/** App Component */
 class App extends React.Component<AppComponentProps, AppComponentStates> {
     constructor(props: AppComponentProps) {
         super(props);
@@ -58,6 +59,7 @@ class App extends React.Component<AppComponentProps, AppComponentStates> {
                         <AppBaseNavBar />
                     : null
                 }
+                    {/** Routing */}
                     <Switch>
                         <Route
                             path='/'

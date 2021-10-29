@@ -1,20 +1,24 @@
 import * as React from 'react';
 
+/** for UI */
 import Button from '@material-ui/core/Button';
 import Grow from '@material-ui/core/Grow';
 
+/** API */
 import { getStockOne } from '@app/apis/stockDetail';
 
-
-// Stylesheet
+/** Stylesheet */
 import './StockDetailDialog.scss';
 
+/** Props of `StockDetail` component. */
 type StockDetailDialogProps = {
     stockData: any;
     closeDialog: Function;
 };
 
+/** States of `StockDetail` component. */
 type StockDetailDialogState = {
+    /** stcok data */
     stock: Array<any>;
 };
 
@@ -28,12 +32,10 @@ class StockDetailDialog extends React.Component<StockDetailDialogProps, StockDet
     }
 
     componentDidMount() {
+        /** Call Api  */
         this.callApiToFetch();
     }
 
-    componentDidUpdate() {
-        console.log('stock', this.state.stock);
-    }
 
     render() {
         return (
@@ -45,6 +47,7 @@ class StockDetailDialog extends React.Component<StockDetailDialogProps, StockDet
 
                     <Grow in={true}>
                     <div className='StockDetailDialog-Content'>
+                        {/** Title of Dialog */}
                         <div className='Content-Title'>
                             <div className='Title-info'>
                                 {this.props.stockData.item}
@@ -52,6 +55,7 @@ class StockDetailDialog extends React.Component<StockDetailDialogProps, StockDet
                         </div>
                         <div className='Content-Info'>
                             <div className='Info-Section1'>
+                                {/** stock name and price, etc */}
                                 <div className='Section1-1'>
                                     <div className='item'> {this.props.stockData.item}</div>
                                     <div className='currentPrice' style={this.props.stockData.fluctuation.substring(0, 1) === '+' ? {color: 'red'}
@@ -70,6 +74,7 @@ class StockDetailDialog extends React.Component<StockDetailDialogProps, StockDet
                                         {this.props.stockData.fluctuation}
                                     </div>
                                 </div>
+                                {/** stock's detail info */}
                                 <div className='Section1-2'>
                                     <div className='Info'>
                                         <div className='Info-title'> 외국인비율 </div>
@@ -84,6 +89,7 @@ class StockDetailDialog extends React.Component<StockDetailDialogProps, StockDet
                                         <div className='Info-content'> {this.props.stockData.marketCapitalization} </div>
                                     </div>
                                 </div>
+                                {/** stock's detail info */}
                                 <div className='Section1-3'>
                                     <div className='Info'>
                                         <div className='Info-title'> 액면가 </div>
@@ -102,6 +108,7 @@ class StockDetailDialog extends React.Component<StockDetailDialogProps, StockDet
                                         <div className='Info-content'> {this.props.stockData.roe}</div>
                                     </div>
                                 </div>
+                                {/** chart of stock */}
                                 <div className='Section1-Chart'>
                                 {
                                     this.state.stock && this.state.stock.length > 0 ?
@@ -111,7 +118,7 @@ class StockDetailDialog extends React.Component<StockDetailDialogProps, StockDet
                                 </div>
 
                             </div>
-
+                            {/** stock's detail information */}
                             <div className='Info-Section2'>
                                 <div className='Section2'>
                                     {
@@ -129,7 +136,7 @@ class StockDetailDialog extends React.Component<StockDetailDialogProps, StockDet
                                 </div>
                             </div>
                         </div>
-
+                        {/** buttons on foot */}
                         <div className='Content-Foot'>
                             <Button variant='outlined' className='Foot-Info' onClick={() => this.props.closeDialog(false)}>
                                 닫기
@@ -145,6 +152,7 @@ class StockDetailDialog extends React.Component<StockDetailDialogProps, StockDet
         );
     }
 
+    /** Call API and fetch data  */
     private callApiToFetch = async() => {
         getStockOne(this.props.stockData.indexCode)
             .then(res => this.setState({ stock: res }))

@@ -1,25 +1,24 @@
 import * as React from 'react';
-import { FormattedMessage, FormattedRelative } from 'react-intl';
-import { RouteComponentProps } from 'react-router';
-import { Link } from 'react-router-dom';
 
-// Component
+/** Route */
+import { RouteComponentProps } from 'react-router';
+
+/** Component */
 import Indexes from '@app/components/Indexes';
 import StocksList from '@app/components/StocksList';
 import TopList  from '@app/components/TopList';
 
-// Stroe
-import store from '@app/store';
-
+/** Stylesheet */
 import './HomeInfo.scss';
 
+/** Props of `HomeInfo` component. */
 type HomeInfoProps = {} & RouteComponentProps;
 
-type HomeInfotStates = {
-};
+/** States of `HomeInfo` component. */
+type HomeInfotStates = {};
 
+/** HomeInfo Component */
 class HomeInfo extends React.Component<HomeInfoProps, HomeInfotStates> {
-
     constructor(props: HomeInfoProps) {
         super(props);
         this.state = {
@@ -27,7 +26,6 @@ class HomeInfo extends React.Component<HomeInfoProps, HomeInfotStates> {
     }
 
     render() {
-
         return (
             <div className='FinanceProject-HomeInfo'>
                 <Indexes />

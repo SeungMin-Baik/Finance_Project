@@ -1,27 +1,27 @@
 import * as React from 'react';
+
+/** Route */
 import { Switch, Route } from 'react-router';
 
-// Component
+/** Component */
 import HomeInfo from './Info/HomeInfo';
 
-// StyleSeet
+/** StyleSeet */
 import './Home.scss';
 
+/** States of `Home` component. */
+type HometStates = {};
 
-type HometStates = { };
-
-/* Route home*/
+/** Home */
 class Home extends React.Component<{}, HometStates> {
     constructor(props: {}) {
         super(props);
     }
 
-    componentDidMount() {
-    }
-
     render() {
         return (
             <div className='FinanceProject-Home'>
+                {/** Routing */}
                 <Switch>
                     <Route
                         path='/home'

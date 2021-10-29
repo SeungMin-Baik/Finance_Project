@@ -1,33 +1,37 @@
 import * as React from 'react';
 
+/** for UI */
 import Button from '@material-ui/core/Button';
 
-import { FormattedMessage, FormattedRelative } from 'react-intl';
-import { RouteComponentProps } from 'react-router';
-import { Link } from 'react-router-dom';
-
-// API
+/** API */
 import { getStocksList, stockObject } from '@app/apis/stocksList';
 
-// Component
+/** Component */
 import StockDetailDialog from './Dialog';
 
-// StyleSheet
+/** StyleSheet */
 import './StocksList.scss';
 
-type StocksListProps = {
+/** Props of `StocksList` component. */
+type StocksListProps = {};
 
-};
-
+/** States of `StocksList` component. */
 type StocksListtStates = {
+    /** stcoks data array */
     stocksList: stockObject[];
+    /** KOSPI || KOSDAQ */
     listType: string;
+    /** Page number */
     page: number;
+    /** Stock data one */
     stockOne: stockObject;
+    /** For Dialog */
     isVisible: boolean;
 };
 
+/** StocksList Component */
 class StocksList extends React.Component<StocksListProps, StocksListtStates> {
+    /** object for list */
     private titleList = [
         'N', '종목명', '현재가', '전일비', '등락률', '액면가', '시가총액',
         '상장주식수', '외국인비율', '거래량', 'PER', 'ROE'
@@ -44,10 +48,8 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
     }
 
     componentDidMount() {
+        /** Call API */
         this.callApiToFetch();
-    }
-
-    componentDidUpdate() {
     }
 
     render() {
@@ -55,6 +57,7 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
         return (
         <>
             {
+                /** Dialog */
                 this.state.isVisible ?
                     <StockDetailDialog
                         stockData={this.state.stockOne}
@@ -63,13 +66,16 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
                 : null
             }
             <div className='FinanceProject-StocksList'>
+                {/** Tabs */}
                 <div className='StocksList-Header'>
+                    {/** KOSPI Tab */}
                     <div className='Header-Info' >
                         <Button className='Info-button' onClick={() => this.changeTab('KOSPI')}
                                 style={this.state.listType === 'KOSPI' ? {color: '#000000', background: '#e9e9e9'} : {color: '#dddddd'}}>
                             코스피
                         </Button>
                     </div>
+                    {/** KOSDAQ Tab */}
                     <div className='Header-Info'>
                         <Button className='Info-button' onClick={() => this.changeTab('KOSDAQ')}
                                 style={this.state.listType === 'KOSDAQ' ? {color: '#000000', background: '#e9e9e9'} : {color: '#dddddd'}}>
@@ -78,6 +84,7 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
                     </div>
                 </div>
 
+                {/** Titles for Stocks List */}
                 <div className='StocksList-Title'>
                 {
                     this.titleList.map(title => {
@@ -90,11 +97,13 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
                 }
                 </div>
 
+                {/** Body for Stocks List  */}
                 <table className='StocksList-Body'>
                     {
                         this.state.stocksList && this.state.stocksList.length > 0 ?
                         this.state.stocksList.map(stock => {
                             return (
+                            /** Stocks data table */
                             <tbody>
                             <tr className='Body-Info'>
                                 <td className='Info-text'>
@@ -150,6 +159,7 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
                     }
                 </table>
 
+                {/** page buttons on foot */}
                 <div className='StocksList-Footer'>
                     <div className='Footer-Info'>
                         <span className='Info-button' onClick={() => this.changePage('init')}> 첫페이지 </span>
@@ -166,16 +176,19 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
         );
     }
 
+    /** Call API and fetch data */
     private callApiToFetch = async() => {
         await getStocksList(this.state.listType, this.state.page)
             .then(res => this.setState({ stocksList: res }))
             .catch(err => alert('데이터가 없습니다.'));
     }
 
+    /** Change Tab */
     private changeTab = (type: string) => {
         this.setState({ listType: type}, () => this.callApiToFetch());
     }
 
+    /** Change Page Number  */
     private changePage = (change: string) => {
         if (change === 'prev') {
             if (this.state.page > 1) {
@@ -194,6 +207,7 @@ class StocksList extends React.Component<StocksListProps, StocksListtStates> {
         }
     }
 
+    /** Controll Dialog */
     private onDialog = (check: boolean, data?: any) => {
         this.setState({ stockOne: data }, () => {
             this.setState({
